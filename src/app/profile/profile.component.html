@@ -1,11 +1,14 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="profile-area">
-      <img src="{{profile?.picture}}" class="avatar" alt="avatar">
-      <div>
-        <label><i class="glyphicon glyphicon-user"></i> Nickname</label>
-        <h3 class="nickname">{{ profile?.nickname }}</h3>
+      <div class="card">
+        <h3 class="card-header">{{ profile?.nickname }}</h3>
+        <div class="card-body">
+          <img class="card-img-top" src="{{profile?.picture}}" alt="Card image cap">
+          <h4 class="card-title">Repositórios</h4>
+          <pre class="card-text">{{ profile | json }}</pre>
+        </div>
       </div>
-      <pre class="full-profile">{{ profile | json }}</pre>
     </div>
+  </div>
 </div>
