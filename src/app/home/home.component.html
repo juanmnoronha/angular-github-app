@@ -1,0 +1,13 @@
+<div class="jumbotron" *ngIf="auth.isAuthenticated()">
+  <h1 class="display-4">Bem-vindo ao seu perfil do Github</h1>
+  <p class="lead">Clique no botão abaixo e visualize todos os seus repositórios</p>
+  <hr class="my-4">
+  <a class="btn btn-primary btn-lg" routerLink="/profile">Ver repositórios</a>
+</div>
+
+<div class="jumbotron" *ngIf="!auth.isAuthenticated()">
+  <h1 class="display-4">Bem-vindo ao seu perfil do Github</h1>
+  <p class="lead">Você precisar estar logado para visualizar todos os seus repositórios</p>
+  <hr class="my-4">
+  <a class="btn btn-primary btn-lg" (click)="auth.login()">Entrar</a>
+</div>
