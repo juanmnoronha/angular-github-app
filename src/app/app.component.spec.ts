@@ -19,7 +19,7 @@ describe('AppComponent', () => {
         HomeComponent,
         ProfileComponent,
         HeaderComponent,
-        FooterComponent,
+        FooterComponent
       ],
     }).compileComponents();
   }));
@@ -35,4 +35,5 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('angular-github-app');
   });
+
 });
