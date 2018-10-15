@@ -9,7 +9,7 @@ import * as auth0 from 'auth0-js';
 export class AuthService {
 
   filter;
-  
+
   auth0 = new auth0.WebAuth({
     clientID: AUTH_CONFIG.clientID,
     domain: AUTH_CONFIG.domain,
@@ -17,7 +17,7 @@ export class AuthService {
     redirectUri: AUTH_CONFIG.callbackURL,
     scope: 'openid profile'
   });
-  
+
   userProfile: any;
 
   constructor(public router: Router) { }
@@ -76,5 +76,9 @@ export class AuthService {
     // access token's expiry time
     const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
     return new Date().getTime() < expiresAt;
+  }
+
+  public token(): string {
+    return localStorage.getItem('access_token');
   }
 }

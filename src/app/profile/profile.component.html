@@ -7,6 +7,11 @@
           <img class="card-img-top" src="{{profile?.picture}}" alt="Avatar">
           <h4 class="card-title">Repositórios</h4>
           <pre class="card-text">{{ profile | json }}</pre>
+          <ul *ngFor="let repo of repos">
+            <li>
+              {{ repo.full_name }}
+            </li>
+          </ul>
         </div>
       </div>
     </div>

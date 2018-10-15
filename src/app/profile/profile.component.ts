@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AuthService } from './../auth/auth.service';
+import { GithubService } from './../github/github.service';
 
 @Component({
   selector: 'app-profile',
@@ -9,15 +11,22 @@ import { AuthService } from './../auth/auth.service';
 export class ProfileComponent implements OnInit {
 
   profile: any;
+  repos: any[];
 
-  constructor(public auth: AuthService) { }
+  constructor(public auth: AuthService, private github: GithubService) { }
 
   ngOnInit() {
+    console.log(this.auth.token());
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
     } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
+        console.log(profile);
+        this.github.getRepos(this.profile.nickname).subscribe(
+          data => this.repos = data,
+          error => console.log(error)
+        )
       });
     }
   }
