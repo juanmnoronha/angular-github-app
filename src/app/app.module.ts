@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { CallbackComponent } from './callback/callback.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { ProfileComponent } from './profile/profile.component';
     CallbackComponent,
     HomeComponent,
     ProfileComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

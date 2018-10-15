@@ -1,0 +1,12 @@
+.header {
+  padding: .5em 0;
+}
+
+.header .navbar-nav {
+  flex-direction: row;
+}
+
+.header .nav-link {
+  cursor: pointer;
+  padding: .5rem;
+}

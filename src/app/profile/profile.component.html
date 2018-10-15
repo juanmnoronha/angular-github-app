@@ -1,18 +1,24 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <div class="profile-area">
-      <div class="card">
-        <h3 class="card-header">{{ profile?.nickname }}</h3>
-        <div class="card-body">
-          <img class="card-img-top" src="{{profile?.picture}}" alt="Avatar">
-          <h4 class="card-title">Repositórios</h4>
-          <pre class="card-text">{{ profile | json }}</pre>
-          <ul *ngFor="let repo of repos">
-            <li>
-              {{ repo.full_name }}
-            </li>
-          </ul>
+    <div class="profile card">
+      <div class="card-body">
+        <div class="profile__info d-flex justify-content-start align-items-start">
+          <img class="profile__avatar mr-4 justcard-img-top" src="{{profile?.picture}}" alt="Avatar">
+          <div class="d-flex flex-column mb-4">
+            <h2 class="h2 d-block">{{ profile?.name }}</h2>
+            <h3 class="h3 text-secondary">@{{ profile?.nickname }}</h3>
+          </div>
         </div>
+        <h4 class="card-title">Repositórios</h4>
+        <ul class="list-group list-group-flush" *ngFor="let repo of repos">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{{ repo?.html_url }}">{{ repo?.name }}</a>
+            <span class="d-flex">
+              <span class="badge badge-primary mr-2">Star: {{ repo?.stargazers_count }}</span>
+              <span class="badge badge-primary">Fork: {{ repo?.forks_count }}</span>
+            </span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

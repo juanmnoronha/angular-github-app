@@ -1,0 +1,21 @@
+<header class="header bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="#">Github</a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link" *ngIf="auth.isAuthenticated()" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" *ngIf="auth.isAuthenticated()" routerLink="/profile">Perfil</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">Entrar</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">Sair</a>
+      </li>
+    </ul>
+  </nav>
+</header>

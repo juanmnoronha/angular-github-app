@@ -1,4 +1,24 @@
-.profile-area img {
-  max-width: 150px;
-  margin-bottom: 20px;
+.profile {
+  padding: .5rem;
+}
+
+  .profile__avatar {
+    display: block;
+    height: auto;
+    max-width: 150px;
+  }
+
+    .profile__info {
+      flex-direction: row;
+      margin-bottom: 2rem;
+    }
+
+@media (max-width: 768px) {
+  .profile__info {
+    flex-direction: column-reverse;
+  }
+
+  .profile__avatar {
+    max-width: 100%;
+  }
 }

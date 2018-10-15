@@ -16,13 +16,15 @@ export class ProfileComponent implements OnInit {
   constructor(public auth: AuthService, private github: GithubService) { }
 
   ngOnInit() {
-    console.log(this.auth.token());
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
+      this.github.getRepos(this.profile.nickname).subscribe(
+        data => this.repos = data,
+        error => console.log(error)
+      )
     } else {
       this.auth.getProfile((err, profile) => {
         this.profile = profile;
-        console.log(profile);
         this.github.getRepos(this.profile.nickname).subscribe(
           data => this.repos = data,
           error => console.log(error)
