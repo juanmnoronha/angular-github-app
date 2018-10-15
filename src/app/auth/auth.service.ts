@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+
 import * as auth0 from 'auth0-js';
 import { AUTH_CONFIG } from './auth0-variables';
 
@@ -7,8 +8,6 @@ import { AUTH_CONFIG } from './auth0-variables';
   providedIn: 'root'
 })
 export class AuthService {
-
-  filter;
 
   auth0 = new auth0.WebAuth({
     clientID: AUTH_CONFIG.clientID,

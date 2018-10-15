@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
         error => console.log(error)
       )
     } else {
-      this.auth.getProfile((err, profile) => {
+      this.auth.getProfile((error, profile) => {
         this.profile = profile;
         this.github.getRepos(this.profile.nickname).subscribe(
           data => this.repos = data,
