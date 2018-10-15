@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { ProfileComponent } from './profile.component';
+
+import { AuthService } from '../auth/auth.service';
+import { GithubService } from '../github/github.service';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -8,7 +13,15 @@ describe('ProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ]
+      declarations: [ ProfileComponent ],
+      imports: [
+        RouterTestingModule,
+        HttpClientModule
+      ],
+      providers: [
+        AuthService, 
+        GithubService
+      ],
     })
     .compileComponents();
   }));
